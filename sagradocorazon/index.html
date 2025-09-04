@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -18,7 +21,7 @@
             --light-gray: white;
             --orange: #ff6200;
             --dark-orange: #cc4e00;
-            --text-color: #7c7c7c;
+            --text-color: #000000;
             --button-color: #C9BCAA;
             --donar-button-color: #6C9FCB;
             --donar-button-hover: #4A7DA3;
@@ -90,6 +93,14 @@
             max-width: 100%;
             margin: 0;
             padding: 0;
+        }
+
+        h3 {
+            width: 60%;
+            font-weight: regular;
+        }
+        p {
+            margin: 1em 0 1em 0; 
         }
         .tab-content {
             display: none;
@@ -259,6 +270,7 @@
         }
         .video-container {
             position: relative;
+            widht: 60%;
             padding-top: 56.25%; /* 16:9 Aspect Ratio (9/16 * 100) */
             height: 0;
             overflow: hidden;
@@ -348,7 +360,6 @@
             <div class="extra-text">
                 <h2>Ayúdenos a construir la iglesia del Sagrado Corazón en Buenos Aires</h2>
                 <button class="donar-tab-button" onclick="switchTab('donar')">DONAR</button>
-                <hr>
             </div>
             <div class="photo-container full-width">
                 <img src="https://raw.githubusercontent.com/altrench/ObrasDistrito/main/sagradocorazon/Foto%202.jpg" alt="Iglesia Sagrado Corazón">
@@ -447,7 +458,7 @@
             const introText = "Estimado equipo, quiero informarles sobre mi donación para la nueva iglesia del Sagrado Corazón en Buenos Aires. A continuación, mis datos:\n\n";
             const emailBody = introText + "Nombre: " + nombre + "\nDonación: " + donacion + "\nEmail: " + email + "\nTeléfono: " + telefono;
             const encodedBody = encodeURIComponent(emailBody);
-            window.location.href = "mailto:sagradocorazonba@fsspx.com.ar?subject=Información de Donación&body=" + encodedBody;
+            window.location.href = "mailto:sagradocorazonba@fsspx.ar?subject=Información de Donación&body=" + encodedBody;
             document.getElementById('donation-form').reset();
         }
 
@@ -455,6 +466,7 @@
     </script>
 </body>
 </html>
+
 
 
 
