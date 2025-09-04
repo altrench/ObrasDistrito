@@ -1,1 +1,1 @@
-This repository contains photos for a webpage. Webpage has 4 tabs named Proyecto, Obra, Donar and Eventos. The photos correspond to each tab and the files names indicate the corresponding tab name plus space and a number
+Este repositorio incluye el código html y contenido multimedia de las obras del Distrito de América del Sur de la FSSPX.
