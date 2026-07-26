@@ -3,14 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.typekit.net/ike2smi.css">
-    
     <title>Iglesia Sagrado Corazón de Jesús</title>
     <style>
         :root {
@@ -21,7 +13,7 @@
             --light-gray: white;
             --orange: #ff6200;
             --dark-orange: #cc4e00;
-            --text-color: #000000;
+            --text-color: #7c7c7c;
             --button-color: #C9BCAA;
             --donar-button-color: #6C9FCB;
             --donar-button-hover: #4A7DA3;
@@ -34,7 +26,7 @@
             --footer-bg: #EFEFEF;
         }
         body {
-            font-family: "Schoolbook", "Century", "Times New Roman", serif;
+            font-family: "Century", "Times New Roman", serif;
             margin: 0;
             padding: 0;
             color: var(--text-color);
@@ -94,28 +86,6 @@
             margin: 0;
             padding: 0;
         }
-
-        h2, h3 {
-            width: 60%;
-            font-weight: normal;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        h2 {
-            font-size: 1.5em;
-            line-height: 1.2;
-        }
-
-        h3 {
-            font-size: 1.25em;
-        }
-        
-        p {
-            font-size: 1.1em;
-            line-height: 1.2em;
-            margin: 1em 0 1em 0; 
-        }
         .tab-content {
             display: none;
         }
@@ -146,7 +116,7 @@
             width: 50%;
         }
         .hero-text p:first-child {
-            font-family: "Schoolbook", "Century", "Times New Roman", serif;
+            font-family: "Century", "Times New Roman", serif;
             font-style: italic;
             font-size: 24px;
             margin-bottom: 10px;
@@ -175,7 +145,7 @@
             margin: 0;
         }
         .photo-container p {
-            margin: 1em auto;
+            margin: 10px auto 0 auto;
             max-width: 675px;
             font-size: 18.2px;
             text-align: center;
@@ -192,9 +162,6 @@
             width: 50px;
             margin: 30px auto;
             border: 1px solid black;
-        }
-        .caption {
-            font-family: "Libre Franklin", sans-serif;
         }
         .donar-tab-button {
             background-color: var(--donar-button-color);
@@ -283,16 +250,11 @@
             height: auto;
         }
         .video-container {
-            position: relative;
-            widht: 300px;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio (9/16 * 100) */
-            height: 0;
-            overflow: hidden;
+            width: 960px;
+            height: 540px;
+            margin: 10px auto;
         }
         .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
         }
@@ -374,6 +336,7 @@
             <div class="extra-text">
                 <h2>Ayúdenos a construir la iglesia del Sagrado Corazón en Buenos Aires</h2>
                 <button class="donar-tab-button" onclick="switchTab('donar')">DONAR</button>
+                <hr>
             </div>
             <div class="photo-container full-width">
                 <img src="https://raw.githubusercontent.com/altrench/ObrasDistrito/main/sagradocorazon/Foto%202.jpg" alt="Iglesia Sagrado Corazón">
@@ -381,18 +344,18 @@
             </div>
             <div class="extra-text">
                 <hr>
-                <h2>La primera casa de la FSSPX en América</h2>
+                <h3>La primera casa de la FSSPX en América</h3>
                 <div class="photo-container">
                     <img src="https://raw.githubusercontent.com/altrench/ObrasDistrito/main/sagradocorazon/Video%201.jpg" alt="Video 1">
-                    <p class="caption">Conozca la historia de la primera casa que fundó Mons. Lefebvre en el continente.</p>
-                    <p>Este proyecto significa una renovación del pacto del Priorato de Buenos Aires de la FSSPX y de sus familias con el Sagrado Corazón.</p>
+                    <p>Conozca la historia de la primera casa que fundó Mons. Lefebvre en el continente. Este proyecto significa una renovación del pacto del Priorato de Buenos Aires de la FSSPX y de sus familias con el Sagrado Corazón.</p>
                     <hr>
                 </div>
-                <h2>¿Qué es un priorato?</h2>
+                <h3>¿Qué es un priorato?</h3>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/3_SgnqnRD2k?si=KdJXt5pnJNyWReSl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/a2wq_kZXN34" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <p class="caption">Conozca la vida parroquial del priorato de Buenos Aires.</p>
+                <p style="font-size: 18.2px;">Conozca la vida parroquial del priorato de Buenos Aires.</p>
+                <hr>
             </div>
             <div class="photo-container full-width">
                 <img src="https://raw.githubusercontent.com/altrench/ObrasDistrito/main/sagradocorazon/Plano%20background.jpg" alt="Plano de la Iglesia">
@@ -403,25 +366,25 @@
             <div class="extra-text">
                 <h2>Ayúdenos a construir la iglesia del Sagrado Corazón en Buenos Aires</h2>
                 <p>Los fondos recaudados serán destinados exclusivamente a la construcción de la nueva iglesia del Sagrado Corazón de Jesús.</p>
-                <p><strong>Datos Bancarios:</strong><br>Fundación San Pío X<br>CUIT 30-62017060-3</p>
+                <p><strong>Datos Bancarios:</strong><br>Banco Francés BBVA - Fundación San Pío X<br>CUIT 30-62017060-3</p>
             </div>
             <div class="box-container">
                 <div class="box">
                     <p>Cuenta Corriente en pesos<br>
                     Alias: NUEVA.IGLESIA.CABA<br>
-                    CBU: 0070041220000016325511</p>
+                    CBU: 0170022020000002388692</p>
                 </div>
                 <div class="box">
                     <p>Cuenta Corriente en dólares<br>
                     Alias: NUEVA.IGLESIA.DOLAR<br>
-                    CBU: 0070041231009750414473</p>
+                    CBU: 0170022026000040137874</p>
                 </div>
             </div>
             <div class="extra-text">
-                <p>Ante cualquier consulta, contáctenos a través de nuestro mail: <a href="mailto:sagradocorazonba@fsspx.ar">sagradocorazonba@fsspx.ar</a></p>
+                <p>Ante cualquier consulta, contáctenos a través de nuestro mail: <a href="mailto:sagradocorazonba@fsspx.com.ar">sagradocorazonba@fsspx.com.ar</a></p>
                 <p>En caso de querer informarnos acerca de su donación puede hacerlo completando este formulario:</p>
             </div>
-            <form id="donation-form" action="mailto:sagradocorazonba@fsspx.ar" method="post" enctype="text/plain">
+            <form id="donation-form" action="mailto:sagradocorazonba@fsspx.com.ar" method="post" enctype="text/plain">
                 <label for="nombre">Nombre y apellido:</label>
                 <input type="text" id="nombre" name="nombre" required>
                 <label for="donacion">Donación:</label>
@@ -436,7 +399,7 @@
     </main>
 
     <footer>
-        <img src="https://raw.githubusercontent.com/altrench/ObrasDistrito/main/sagradocorazon/Footer.svg" alt="Footer">
+        <img src="https://raw.githubusercontent.com/altrench/ObrasDistrito/main/sagradocorazon/Footer.jpg" alt="Footer">
     </footer>
 
     <script>
@@ -473,7 +436,7 @@
             const introText = "Estimado equipo, quiero informarles sobre mi donación para la nueva iglesia del Sagrado Corazón en Buenos Aires. A continuación, mis datos:\n\n";
             const emailBody = introText + "Nombre: " + nombre + "\nDonación: " + donacion + "\nEmail: " + email + "\nTeléfono: " + telefono;
             const encodedBody = encodeURIComponent(emailBody);
-            window.location.href = "mailto:sagradocorazonba@fsspx.ar?subject=Información de Donación&body=" + encodedBody;
+            window.location.href = "mailto:sagradocorazonba@fsspx.com.ar?subject=Información de Donación&body=" + encodedBody;
             document.getElementById('donation-form').reset();
         }
 
@@ -481,19 +444,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
