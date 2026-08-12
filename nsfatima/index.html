@@ -170,6 +170,75 @@
             text-align: center;
             font-size: 16px;
         }
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px var(--grey-shade);
+            background-color: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .video-facade {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-facade::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            transition: background 0.3s;
+        }
+        .video-facade:hover::before {
+            background: rgba(0, 0, 0, 0.15);
+        }
+        .video-play-label {
+            position: relative;
+            z-index: 1;
+            background-color: var(--button-color);
+            color: var(--dark-grey);
+            font-family: "News Gothic MT", sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 14px 28px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, color 0.3s, transform 0.1s;
+        }
+        .video-facade:hover .video-play-label {
+            background-color: var(--button-hover);
+            color: white;
+            transform: scale(1.05);
+        }
+        .video-fallback {
+            text-align: center;
+            font-size: 15px;
+            margin-top: 12px;
+        }
+        .video-fallback a {
+            color: var(--dark-grey);
+        }
         .box-container {
             display: flex;
             flex-wrap: wrap;
@@ -519,6 +588,10 @@
             .extra-text ul li::marker {
                 font-size: 16px;
             }
+            .video-play-label {
+                font-size: 14px;
+                padding: 10px 18px;
+            }
             .box {
                 width: 130px;
                 height: 70px;
@@ -552,7 +625,7 @@
             <button onclick="switchTab('proyecto')" class="tab-button active">Proyecto</button>
             <button onclick="switchTab('obra')" class="tab-button">Obra</button>
             <button onclick="switchTab('eventos')" class="tab-button">Eventos</button>
-            <button onclick="switchTab('pendientes')" class="tab-button">Pendientes</button>
+            <button onclick="switchTab('pendientes')" class="tab-button">Video</button>
         </nav>
     </header>
 
@@ -819,62 +892,17 @@
         </div>
 
         <div id="pendientes" class="tab-content">
-            <h2>Pon tu Piedra.</h2>
-            <p>Agradecemos las donaciones que nos permitieron completar la etapa inicial de construcción. Necesitamos donaciones adicionales para completar los items listados abajo. San José seguirá escuchando nuestras oraciones.</p>
-            <div class="box-container">
-                <div class="box">
-                    <div class="box-front"><strong>Aberturas</strong></div>
-                    <div class="box-back">Para espacios comunes</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Altar mayor</strong></div>
-                    <div class="box-back">Piedra de alta calidad, pisos de mármol y retablo</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Bancos</strong></div>
-                    <div class="box-back">Para la nave central de cedro</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Baptisterio</strong></div>
-                    <div class="box-back">Para lugar especial en la nueva Iglesia</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Campanario</strong></div>
-                    <div class="box-back">Nueva campana adicional</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Imágenes</strong></div>
-                    <div class="box-back">Para muros interiores de la Iglesia</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Materiales eléctricos</strong></div>
-                    <div class="box-back">Instalación eléctrica y artefactos de iluminación</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Órgano</strong></div>
-                    <div class="box-back">Similar a la Iglesia en Chile con sistema de audio</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Ornamentos sacerdotales</strong></div>
-                    <div class="box-back">Tres juegos de colores faltantes</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Portones y rejas</strong></div>
-                    <div class="box-back">Para acceso a la Iglesia</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Sacristía</strong></div>
-                    <div class="box-back">Muebles más grandes</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Climatización</strong></div>
-                    <div class="box-back">Dos equipos Daikin (Japón) centralizados de aire frío y caliente</div>
-                </div>
-                <div class="box">
-                    <div class="box-front"><strong>Techo</strong></div>
-                    <div class="box-back">Materiales varios y ventanas</div>
-                </div>
+            <h2>Construcción de la Iglesia de Martínez</h2>
+            <p>Recopilación de fotos y videos desde el desarmado de la capilla en 2024, pasando por la construcción de la nueva Iglesia y ceremonia de Bendición en 2026.</p>
+            <div class="video-container" id="video-box">
+                <button type="button" class="video-facade" id="video-facade"
+                        style="background-image:url('https://img.youtube.com/vi/al3-E7Ai-yo/maxresdefault.jpg');"
+                        onclick="playVideo()" aria-label="Reproducir video">
+                    <span class="video-play-label">&#9654;&nbsp; Ver video</span>
+                </button>
             </div>
+            <p class="video-fallback">Si el video no se reproduce aquí, puede verlo en
+                <a href="https://youtu.be/al3-E7Ai-yo" target="_blank" rel="noopener">YouTube</a>.</p>
         </div>
 
         <div id="quiero-donar" class="tab-content">
@@ -934,7 +962,7 @@
 
             const floatingButtons = document.getElementById('floating-buttons');
             if (floatingButtons) {
-                floatingButtons.style.display = (currentTab === 'obra' || currentTab === 'eventos' || currentTab === 'pendientes') ? 'flex' : 'none';
+                floatingButtons.style.display = (currentTab === 'obra' || currentTab === 'eventos') ? 'flex' : 'none';
             } else {
                 console.error("Floating buttons element not found.");
             }
@@ -953,6 +981,25 @@
             }
 
             scrollToTop();
+        }
+
+        function playVideo() {
+            const box = document.getElementById('video-box');
+            if (!box) return;
+
+            // YouTube rechaza embeds sin origen válido (archivo local). En ese
+            // caso se abre el video en YouTube en lugar de mostrar Error 153.
+            if (location.protocol !== 'http:' && location.protocol !== 'https:') {
+                window.open('https://youtu.be/al3-E7Ai-yo', '_blank', 'noopener');
+                return;
+            }
+
+            const src = 'https://www.youtube.com/embed/al3-E7Ai-yo'
+                + '?autoplay=1&rel=0&playsinline=1&origin=' + encodeURIComponent(location.origin);
+            box.innerHTML = '<iframe src="' + src + '" '
+                + 'title="Construcción de la Iglesia de Martínez" '
+                + 'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" '
+                + 'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         }
 
         function hideButtonsAndSwitch(tabId) {
