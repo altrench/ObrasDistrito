@@ -619,6 +619,8 @@
         .intro h2{text-align:center}
         h2.sec{text-align:center;margin:30px 0 10px}
 
+        .render-btn{background-color:var(--donar-green,#8BB39B);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-size:1rem;cursor:pointer;margin-top:10px}
+        .render-btn:hover{filter:brightness(.9)}
         .donar-tab{background-color:var(--donar-green);min-width:100px;width:auto;padding:10px 14px}
         .donar-tab:hover,.donar-tab.active{background-color:var(--darker-green);color:white}
         .donar-wrap{max-width:760px;margin:20px auto;line-height:1.7;font-size:17px}
@@ -653,6 +655,10 @@
             <div class="photo-container centered">
                 <img src="proyecto-05.jpg" alt="Fachada de la nueva Iglesia (render)">
                 <p></p>
+                <button type="button" id="render-btn" class="render-btn" onclick="toggleRender()">&#9654; Render del proyecto</button>
+                <div id="render-video" style="display:none;margin-top:12px">
+                    <video id="render-player" controls playsinline preload="none" src="render-proyecto.mp4" style="width:100%;max-width:960px;border-radius:6px"></video>
+                </div>
             </div>
             <div class="intro">
                 <h2>Una nueva Iglesia y Priorato en Corrientes</h2>
@@ -1227,6 +1233,7 @@
             if (w) window.scrollTo({ top: w.getBoundingClientRect().top + window.pageYOffset - 150, behavior: 'smooth' });
         }
         switchTab((location.hash||'').slice(1) && document.getElementById(location.hash.slice(1)) ? location.hash.slice(1) : 'proyecto');
-    </script>
+    function toggleRender(){var d=document.getElementById('render-video'),v=document.getElementById('render-player'),b=document.getElementById('render-btn');if(d.style.display==='none'){d.style.display='block';b.innerHTML='&#10005; Ocultar render';v.play().catch(function(){});}else{v.pause();d.style.display='none';b.innerHTML='&#9654; Render del proyecto';}}
+</script>
 </body>
 </html>
