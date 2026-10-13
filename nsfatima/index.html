@@ -610,7 +610,13 @@
                 height: 15px;
             }
         }
-    </style>  
+    
+        #piedra { font-family: "News Gothic MT", sans-serif; }
+        #piedra h2 { font-weight: bold; text-align: center; margin-bottom: 20px; }
+        #piedra p { margin-bottom: 20px; text-align: center; font-size: 16px; }
+        .donar-tab { background-color: var(--donar-green); width: auto; min-width: 100px; padding: 10px 14px; }
+        .donar-tab:hover, .donar-tab.active { background-color: var(--darker-green); color: white; }
+</style>  
 </head>
 <body>
     <header>
@@ -626,6 +632,7 @@
             <button onclick="switchTab('obra')" class="tab-button">Obra</button>
             <button onclick="switchTab('eventos')" class="tab-button">Eventos</button>
             <button onclick="switchTab('pendientes')" class="tab-button">Video</button>
+            <button onclick="switchTab('piedra')" class="tab-button donar-tab">Pon tu piedra</button>
         </nav>
     </header>
 
@@ -905,6 +912,65 @@
                 <a href="https://youtu.be/al3-E7Ai-yo" target="_blank" rel="noopener">YouTube</a>.</p>
         </div>
 
+        <div id="piedra" class="tab-content">
+            <h2>Pon tu Piedra.</h2>
+            <p>Agradecemos las donaciones que nos permitieron completar la etapa inicial de construcción. Necesitamos donaciones adicionales para completar los items listados abajo. San José seguirá escuchando nuestras oraciones.</p>
+            <div class="box-container">
+                <div class="box">
+                    <div class="box-front"><strong>Aberturas</strong></div>
+                    <div class="box-back">Para espacios comunes</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Altar mayor</strong></div>
+                    <div class="box-back">Piedra de alta calidad, pisos de mármol y retablo</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Bancos</strong></div>
+                    <div class="box-back">Para la nave central de cedro</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Baptisterio</strong></div>
+                    <div class="box-back">Para lugar especial en la nueva Iglesia</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Campanario</strong></div>
+                    <div class="box-back">Nueva campana adicional</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Imágenes</strong></div>
+                    <div class="box-back">Para muros interiores de la Iglesia</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Materiales eléctricos</strong></div>
+                    <div class="box-back">Instalación eléctrica y artefactos de iluminación</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Órgano</strong></div>
+                    <div class="box-back">Similar a la Iglesia en Chile con sistema de audio</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Ornamentos sacerdotales</strong></div>
+                    <div class="box-back">Tres juegos de colores faltantes</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Portones y rejas</strong></div>
+                    <div class="box-back">Para acceso a la Iglesia</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Sacristía</strong></div>
+                    <div class="box-back">Muebles más grandes</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Climatización</strong></div>
+                    <div class="box-back">Dos equipos Daikin (Japón) centralizados de aire frío y caliente</div>
+                </div>
+                <div class="box">
+                    <div class="box-front"><strong>Techo</strong></div>
+                    <div class="box-back">Materiales varios y ventanas</div>
+                </div>
+            </div>
+        </div>
+
         <div id="quiero-donar" class="tab-content">
             <p>Es un acto de gran generosidad contribuir con la Iglesia Nuestra Señora de Fátima. Numerosas almas recibirán los Sacramentos en nuestra nueva Iglesia.</p>
             <p>Las donaciones pueden hacerse en forma directa por transferencia bancaria a nuestro alias: capilla.martinez</p>
@@ -962,7 +1028,7 @@
 
             const floatingButtons = document.getElementById('floating-buttons');
             if (floatingButtons) {
-                floatingButtons.style.display = (currentTab === 'obra' || currentTab === 'eventos') ? 'flex' : 'none';
+                floatingButtons.style.display = (currentTab === 'obra' || currentTab === 'eventos' || currentTab === 'piedra') ? 'flex' : 'none';
             } else {
                 console.error("Floating buttons element not found.");
             }
