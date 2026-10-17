@@ -614,6 +614,8 @@
         #piedra { font-family: "News Gothic MT", sans-serif; }
         #piedra h2 { font-weight: bold; text-align: center; margin-bottom: 20px; }
         #piedra p { margin-bottom: 20px; text-align: center; font-size: 16px; }
+        .donar-big { background-color: var(--donar-green); color: #fff; border: none; border-radius: 6px; padding: 14px 48px; font-size: 1.2rem; cursor: pointer; width: auto; height: auto; }
+        .donar-big:hover { background-color: var(--darker-green); }
         .donar-tab { background-color: var(--donar-green); width: auto; min-width: 100px; padding: 10px 14px; }
         .donar-tab:hover, .donar-tab.active { background-color: var(--darker-green); color: white; }
 </style>  
@@ -632,7 +634,7 @@
             <button onclick="switchTab('obra')" class="tab-button">Obra</button>
             <button onclick="switchTab('eventos')" class="tab-button">Eventos</button>
             <button onclick="switchTab('pendientes')" class="tab-button">Video</button>
-            <button onclick="switchTab('piedra')" class="tab-button donar-tab">Pon tu piedra</button>
+            <button onclick="switchTab('piedra')" class="tab-button donar-tab">Donar</button>
         </nav>
     </header>
 
@@ -968,6 +970,9 @@
                     <div class="box-front"><strong>Techo</strong></div>
                     <div class="box-back">Materiales varios y ventanas</div>
                 </div>
+            </div>
+            <div style="text-align:center;margin:30px 0 20px">
+                <button type="button" class="donar-big" onclick="hideButtonsAndSwitch('quiero-donar')">Donar</button>
             </div>
         </div>
 
