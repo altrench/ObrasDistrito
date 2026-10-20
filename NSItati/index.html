@@ -1248,6 +1248,42 @@
                     <p><strong>Octubre 2026:</strong> Con el personal de obra.</p>
                 </div>
             </div>
+            <div class="photo-wrapper">
+                <div class="photo-container">
+                    <img src="evento-32.jpg" alt="Evento 32" loading="lazy">
+                    <p><strong>Octubre 2026:</strong> Recepción del P. Bouchacourt con la comunidad de Corrientes: 10 años del priorato (2016–2026).</p>
+                </div>
+            </div>
+            <div class="photo-wrapper">
+                <div class="photo-container">
+                    <img src="evento-33.jpg" alt="Evento 33" loading="lazy">
+                    <p><strong>Octubre 2026:</strong> Santa Misa en el oratorio actual.</p>
+                </div>
+            </div>
+            <div class="photo-wrapper">
+                <div class="photo-container">
+                    <img src="evento-34.jpg" alt="Evento 34" loading="lazy">
+                    <p><strong>Octubre 2026:</strong> Celebración de los 10 años del priorato.</p>
+                </div>
+            </div>
+            <div class="photo-wrapper">
+                <div class="photo-container">
+                    <img src="evento-35.jpg" alt="Evento 35" loading="lazy">
+                    <p><strong>Octubre 2026:</strong> Santa Misa en el oratorio actual: la Elevación.</p>
+                </div>
+            </div>
+            <div class="photo-wrapper">
+                <div class="photo-container">
+                    <img src="evento-36.jpg" alt="Evento 36" loading="lazy">
+                    <p><strong>Octubre 2026:</strong> Santa Misa con los fieles de Corrientes.</p>
+                </div>
+            </div>
+            <div class="photo-wrapper">
+                <div class="photo-container">
+                    <img src="evento-37.jpg" alt="Evento 37" loading="lazy">
+                    <p><strong>Octubre 2026:</strong> Charla del P. Bouchacourt a los fieles.</p>
+                </div>
+            </div>
         </div>
         <div id="pendientes" class="tab-content">
             <div class="photo-wrapper"><div class="photo-container"><div class="vid-wrap"><video controls preload="none" playsinline src="v_20260522_182159000.mp4"></video></div><p><strong>Visión del proyecto</strong></p></div></div>
@@ -1291,8 +1327,14 @@
             if (tab) window.scrollTo({ top: tab.scrollHeight, behavior: 'smooth' });
         }
         function scrollToEvent(n) {
-            const w = document.getElementById('eventos').getElementsByClassName('photo-wrapper')[n - 1];
-            if (w) window.scrollTo({ top: w.getBoundingClientRect().top + window.pageYOffset - 150, behavior: 'smooth' });
+            const ws = Array.from(document.getElementById('eventos').getElementsByClassName('photo-wrapper'));
+            const w = ws[n - 1];
+            if (!w) return;
+            const pend = ws.slice(0, n).map(x => x.querySelector('img')).filter(i => i && !i.complete);
+            pend.forEach(i => { i.loading = 'eager'; });
+            const go = () => window.scrollTo({ top: w.getBoundingClientRect().top + window.pageYOffset - 150, behavior: 'auto' });
+            go();
+            Promise.all(pend.map(i => new Promise(r => { i.addEventListener('load', r); i.addEventListener('error', r); }))).then(go);
         }
         switchTab((location.hash||'').slice(1) && document.getElementById(location.hash.slice(1)) ? location.hash.slice(1) : 'proyecto');
     function toggleRender(){var d=document.getElementById('render-video'),v=document.getElementById('render-player'),b=document.getElementById('render-btn');if(d.style.display==='none'){d.style.display='block';b.innerHTML='&#10005; Ocultar render';v.play().catch(function(){});}else{v.pause();d.style.display='none';b.innerHTML='&#9654; Render del proyecto';}}
