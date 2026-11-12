@@ -629,6 +629,13 @@
         .donar-wrap .button-container button{background-color:var(--donar-green);color:white;border:none;padding:10px 24px;border-radius:5px;font-size:16px;cursor:pointer;box-shadow:0 4px 8px rgba(0,0,0,.2)}
         .donar-wrap .button-container button:hover{background-color:var(--darker-green)}
         #donar-msg{color:#b00020;min-height:1.2em;margin-top:10px}
+.bank-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 30px 0; }
+.bank-box { width: 300px; padding: 15px; background-color: var(--grey-line); color: var(--dark-grey); border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); text-align: center; font-size: 15px; line-height: 1.5; }
+.bank-box p { margin: 0; }
+.donar-wrap .center { text-align: center; }
+.donar-wrap form { margin: 20px auto; }
+.donar-wrap form .enviar { background-color: var(--donar-green); color: white; font-weight: bold; border: none; padding: 10px 24px; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 20px; box-shadow: 0 4px 8px rgba(0,0,0,.2); }
+.donar-wrap form .enviar:hover { background-color: var(--darker-green); }
 </style>
 </head>
 <body>
@@ -649,37 +656,57 @@
         </nav>
     </header>
     <main>
-        <div class="donar-wrap">
-            <h2>Donar</h2>
-            <p>Es un acto de gran generosidad contribuir con la nueva Iglesia y Priorato de Nuestra Señora de Itatí en Corrientes. Numerosas almas recibirán los Sacramentos y la Misa tradicional en nuestra nueva Iglesia. Confiamos la obra a la intercesión de Nuestra Señora de Itatí, Patrona de Corrientes.</p>
-            <p>Déjenos sus datos abajo para entrar en contacto y conversar sobre su interés en donar.</p>
-            <form id="donation-form" onsubmit="return false">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" autocomplete="name">
-                <label for="telefono">Teléfono:</label>
-                <input type="text" id="telefono" name="telefono" autocomplete="tel">
-                <label for="item">Donación, ej. dinero, materiales u otra ayuda:</label>
-                <input type="text" id="item" name="item">
-            </form>
-            <div id="donar-msg"></div>
-            <div class="button-container">
-                <button onclick="window.location.href='index.html'">Volver</button>
-                <button onclick="sendDonationEmail()">Enviar</button>
-            </div>
-        </div>
-    </main>
+<div class="donar-wrap">
+<div class="center">
+<h2>Ayúdenos a construir la Iglesia Purísima Madre de Itatí</h2>
+<p>Es un acto de gran generosidad contribuir con la nueva Iglesia y Priorato de Nuestra Señora de Itatí en Corrientes. Numerosas almas recibirán los Sacramentos y la Misa tradicional en nuestra nueva Iglesia. Confiamos la obra a la intercesión de Nuestra Señora de Itatí, Patrona de Corrientes.</p>
+<p><strong>Datos Bancarios:</strong><br>Banco Galicia - Fundación San Pío X<br>CUIT 30-62017060-3</p>
+</div>
+<div class="bank-container">
+<div class="bank-box">
+<p><strong>Pesos</strong><br>
+Alias: fspx.galicia<br>
+CBU: 0070041220000016325511</p>
+</div>
+<div class="bank-box">
+<p><strong>Dólares</strong><br>
+Alias: fspx.galicia.usd<br>
+CBU: 0070041231009750414473</p>
+</div>
+</div>
+<div class="center">
+<p>Ante cualquier consulta, contáctenos a través de nuestro mail: <a href="mailto:economo.sudamerica@fsspx.email">economo.sudamerica@fsspx.email</a></p>
+<p>En caso de querer informarnos acerca de su donación puede hacerlo completando este formulario:</p>
+</div>
+<form id="donation-form" onsubmit="return false">
+<label for="nombre">Nombre y apellido:</label>
+<input type="text" id="nombre" name="nombre" autocomplete="name">
+<label for="donacion">Donación:</label>
+<input type="text" id="donacion" name="donacion">
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" autocomplete="email">
+<label for="telefono">Teléfono:</label>
+<input type="tel" id="telefono" name="telefono" autocomplete="tel">
+<div id="donar-msg"></div>
+<button type="button" class="enviar" onclick="sendDonationEmail()">ENVIAR</button>
+</form>
+</div>
+</main>
     <script>
         function sendDonationEmail() {
-            const nombre = document.getElementById('nombre').value.trim();
-            const telefono = document.getElementById('telefono').value.trim();
-            const item = document.getElementById('item').value.trim();
-            const msg = document.getElementById('donar-msg');
-            if (!(nombre && telefono && item)) { msg.textContent = 'Por favor, complete todos los campos.'; return; }
-            msg.textContent = '';
-            const intro = "Estimado Padre Ecónomo, le envío este correo porque quisiera hacer una donación para la nueva Iglesia de Nuestra Señora de Itatí en Corrientes. Más abajo dejo mis datos de contacto. Saludos cordiales.\n\n";
-            const body = intro + "Nombre: " + nombre + "\nTeléfono: " + telefono + "\nDonación: " + item;
-            window.location.href = "mailto:economo.sudamerica@fsspx.email?subject=" + encodeURIComponent("Interés en Donación - Iglesia Corrientes") + "&body=" + encodeURIComponent(body);
-        }
-    </script>
+const nombre = document.getElementById('nombre').value.trim();
+const donacion = document.getElementById('donacion').value.trim();
+const email = document.getElementById('email').value.trim();
+const telefono = document.getElementById('telefono').value.trim();
+const msg = document.getElementById('donar-msg');
+if (!(nombre && donacion && email && telefono)) { msg.textContent = 'Por favor, complete todos los campos.'; return; }
+if (email.indexOf('@') < 1) { msg.textContent = 'Por favor, ingrese un email válido.'; return; }
+msg.textContent = '';
+const intro = "Estimado Padre Ecónomo, quiero informarle sobre mi donación para la nueva Iglesia de Nuestra Señora de Itatí en Corrientes. A continuación, mis datos:\n\n";
+const body = intro + "Nombre: " + nombre + "\nDonación: " + donacion + "\nEmail: " + email + "\nTeléfono: " + telefono;
+window.location.href = "mailto:economo.sudamerica@fsspx.email?subject=" + encodeURIComponent("Información de Donación - Iglesia Corrientes") + "&body=" + encodeURIComponent(body);
+document.getElementById('donation-form').reset();
+}
+</script>
 </body>
 </html>
